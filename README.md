@@ -1,5 +1,7 @@
 # Desktop Schlatt
 
+If your display zoom settings are anything other than ```100%```, the display for the text box will be broken
+
 
 ## Config
 
