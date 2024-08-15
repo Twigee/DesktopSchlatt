@@ -160,7 +160,6 @@ namespace TransparentFormApp
 
 
                     taskTime.Stop();
-                    taskTime.Reset();
                     taskTime.Start();
                     if(taskTime.Elapsed.TotalSeconds<=sittingTime)
                     {

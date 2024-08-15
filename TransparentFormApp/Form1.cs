@@ -46,7 +46,7 @@ namespace TransparentFormApp
             gamewatch.Start();
             lastFrameTime = gamewatch.Elapsed;
             gametime = new System.Windows.Forms.Timer();
-            gametime.Interval = 12;   // milliseconds
+            gametime.Interval = 20;   // milliseconds
             gametime.Tick += Update;  // set handler
             gametime.Start();
 
@@ -61,7 +61,6 @@ namespace TransparentFormApp
             Console.WriteLine("This is debug stuff, please ignore!");
             Console.ForegroundColor = ConsoleColor.White;
 
-            this.DoubleBuffered = true;
         }
 
         public void Form1_KeyDown(object sender, KeyEventArgs e)

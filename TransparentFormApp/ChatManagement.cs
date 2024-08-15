@@ -6,6 +6,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace TransparentFormApp
 {
 
@@ -103,10 +104,10 @@ namespace TransparentFormApp
         public void createMessage()
         {
             pickRandom();
+            Console.WriteLine(currentLine);
 
-            if (currentLine != null)
-            {
-                switch (currentLine)
+
+            switch (currentLine)
                 {
                     case "Hi! I'm schlatt, your\ndesktop personal assistant.":
                         SoundPlayer simpleSound = new SoundPlayer(@"Audio\Greating.wav");
@@ -119,16 +120,16 @@ namespace TransparentFormApp
                         SoundPlayer simpleSound1 = new SoundPlayer(@"Audio\damn.wav");
                         simpleSound1.Play();
                         break;
-                }
 
+                case "":
+                    pickRandom();
+                    break;
+                }
 
                 canDraw = true;
 
-            }
-            else
-            {
-                pickRandom();
-            }
+            
+           
 
 
         }
