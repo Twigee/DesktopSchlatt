@@ -5,6 +5,7 @@ using TwigTools;
 using System.Windows.Forms;
 using System.Media;
 using System.Runtime.InteropServices;
+using System.Drawing.Printing;
 
 namespace TransparentFormApp
 {
@@ -70,6 +71,11 @@ namespace TransparentFormApp
                 schlatty.taskNumber = 3;
             }
 
+            if (e.KeyCode == Keys.P)
+            {
+                
+            }
+
             #region legacyMove
             //if (e.KeyCode == Keys.D)
             //{
@@ -98,6 +104,8 @@ namespace TransparentFormApp
             #endregion
 
         }
+
+      
 
 
         private void Update(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -28,6 +29,8 @@ namespace TransparentFormApp
         List<chatBoxclass> chatBoxclassesItem = new();
         Schlatty schlatty ;
         string lastLine;
+
+        bool CanPrint = false;
 
 
         string[]? printList;
@@ -133,7 +136,21 @@ namespace TransparentFormApp
                         createMessage();
                         break;
                     case "Check your printer":
+                        if(CanPrint)
+                        {
+                            // i do not want to be printing 9/11 gay jokes to my printer at 3am
 
+                            PrintDocument pd = new PrintDocument();
+                            pd.PrintPage += printImg;
+                            Console.WriteLine("printing Image!");
+                            pd.DefaultPageSettings.Color = false;
+
+                            pd.Print();
+                        }
+                        else
+                        {
+                            createMessage();
+                        }
                         break;
                 }
 
@@ -153,6 +170,13 @@ namespace TransparentFormApp
             canDraw = false;
             lastLine = currentLine;
 
+        }
+
+        private void printImg(object o, PrintPageEventArgs e)
+        {
+            Image img = Image.FromFile("PrinterImages\\90bhx4.jpg");
+            Point pnt = new Point(100, 100);
+            e.Graphics.DrawImage(img, pnt);
         }
 
 
