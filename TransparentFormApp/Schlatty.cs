@@ -66,11 +66,11 @@ namespace TransparentFormApp
         {
             walkWatch = new Stopwatch();
             walkWatch.Start();
-            hisImage = Image.FromFile("a.jpg");
+            hisImage = Image.FromFile("Assets\\Images\\a.jpg");
 
-            baseLayer = Image.FromFile("layer1.png");
-            darkerLayer = Image.FromFile("layer2.png");
-            arms = Image.FromFile("layer3.png");
+            baseLayer = Image.FromFile("Assets\\Images\\layer1.png");
+            darkerLayer = Image.FromFile("Assets\\Images\\layer2.png");
+            arms = Image.FromFile("Assets\\Images\\layer3.png");
 
 
             
@@ -96,11 +96,7 @@ namespace TransparentFormApp
 
 
 
-        public void mousPos(object sender, MouseEventArgs e)
-        {
-            int x = e.X;    
-            int y = e.Y;    //mouse pos fuck yeah!!
-        }
+       
 
 
 

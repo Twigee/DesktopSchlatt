@@ -53,7 +53,6 @@ namespace TransparentFormApp
 
             this.KeyDown += new KeyEventHandler(this.Form1_KeyDown);
 
-            snd = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
 
             schlatty.Init();
             //AllocConsole();
@@ -76,32 +75,9 @@ namespace TransparentFormApp
                 
             }
 
-            #region legacyMove
-            //if (e.KeyCode == Keys.D)
-            //{
-            //    point.X += (int)(1000 * deltaTime.TotalSeconds);
-            //}
-            //if (e.KeyCode == Keys.W)
-            //{
-            //    point.Y -= (int)(1000 * deltaTime.TotalSeconds);
-            //}
-            //if (e.KeyCode == Keys.S)
-            //{
-            //    point.Y += (int)(1000 * deltaTime.TotalSeconds);
-            //}
-            //if (e.KeyCode == Keys.A)
-            //{
-            //    point.X -= (int)(1000 * deltaTime.TotalSeconds);
-            //}
+            
 
-            #endregion
-
-            #region LegacySoundPlaying
-            if (e.KeyCode == Keys.Space)
-            {
-                snd.Play();
-            }
-            #endregion
+            
 
         }
 

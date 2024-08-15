@@ -37,7 +37,7 @@ namespace TransparentFormApp
         public void Init()
         {
             readTxt();
-            chatbox = Image.FromFile("ChatboxLarger.png");
+            chatbox = Image.FromFile("Assets\\Images\\ChatboxLarger.png");
 
             chatbox.RotateFlip(RotateFlipType.Rotate180FlipY);
             font = new Font(FontFamily.GenericMonospace, 20, FontStyle.Regular);
@@ -68,7 +68,7 @@ namespace TransparentFormApp
 
         public void readTxt()
         {
-          string Importlines = File.ReadAllText("Messages.txt");
+          string Importlines = File.ReadAllText("Assets\\Messages.txt");
           lines = Importlines.Split(';');
         }
 
@@ -121,14 +121,14 @@ namespace TransparentFormApp
                 switch (currentLine)
                 {
                     case "Hi! I'm schlatt, your\ndesktop personal assistant.":
-                        SoundPlayer simpleSound = new SoundPlayer(@"Audio\Greating.wav");
+                        SoundPlayer simpleSound = new SoundPlayer(@"Assets\\Audio\\Greating.wav");
                         simpleSound.Play();
                         break;
 
 
 
                     case "damn":
-                        SoundPlayer simpleSound1 = new SoundPlayer(@"Audio\damn.wav");
+                        SoundPlayer simpleSound1 = new SoundPlayer(@"Assets\\Audio\\damn.wav");
                         simpleSound1.Play();
                         break;
 

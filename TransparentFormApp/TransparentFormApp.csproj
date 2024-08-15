@@ -18,37 +18,37 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="a.jpg">
+		<EmbeddedResource Include="Assets\Images\a.jpg">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
-		<EmbeddedResource Include="Chatbox.png">
+		<EmbeddedResource Include="Assets\Images\Chatbox.png">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
-		<EmbeddedResource Include="ChatBoxLarger.png">
+		<EmbeddedResource Include="Assets\Images\ChatBoxLarger.png">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Audio\damn.wav">
+	  <None Update="Assets\Audio\damn.wav">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Audio\Greating.wav">
+	  <None Update="Assets\Audio\Greating.wav">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="layer1.png">
+	  <None Update="Assets\Images\layer1.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="layer2.png">
+	  <None Update="Assets\Images\layer2.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="layer3.png">
+	  <None Update="Assets\Images\layer3.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Messages.txt">
+	  <None Update="Assets\Messages.txt">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="PrinterImages\90bhx4.jpg">
+	  <None Update="Assets\PrinterImages\90bhx4.jpg">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
