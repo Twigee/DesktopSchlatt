@@ -27,6 +27,10 @@ namespace TransparentFormApp
         public bool canDraw = false;
         List<chatBoxclass> chatBoxclassesItem = new();
         Schlatty schlatty ;
+        string lastLine;
+
+
+        string[]? printList;
         public void Init()
         {
             readTxt();
@@ -38,8 +42,13 @@ namespace TransparentFormApp
             schlatty = new Schlatty();
             letterStopWatch = new Stopwatch();
             letterStopWatch.Start();
-            schlatty.fuck = true;   
+            schlatty.fuck = true;
 
+
+
+            printList = Directory.GetFiles("PrinterImages");
+            
+            foreach (string file in printList) { Console.WriteLine(file); }
         }
 
 
@@ -67,7 +76,6 @@ namespace TransparentFormApp
             randomLine = random.Next(0, lines.Length);
             currentLine = lines[randomLine];
             currentLine = currentLine.Replace("\\n", "\n"); // I dont know why, frankly i really dont care why, when it takes in a \ it reads it as \\
-
 
         }
 
@@ -105,9 +113,9 @@ namespace TransparentFormApp
         {
             pickRandom();
             Console.WriteLine(currentLine);
-
-
-            switch (currentLine)
+            if (currentLine != lastLine)
+            {
+                switch (currentLine)
                 {
                     case "Hi! I'm schlatt, your\ndesktop personal assistant.":
                         SoundPlayer simpleSound = new SoundPlayer(@"Audio\Greating.wav");
@@ -121,12 +129,19 @@ namespace TransparentFormApp
                         simpleSound1.Play();
                         break;
 
-                case "":
-                    pickRandom();
-                    break;
+                    case "":
+                        createMessage();
+                        break;
+                    case "Check your printer":
+
+                        break;
                 }
 
                 canDraw = true;
+            }
+            else createMessage();
+
+           
 
             
            
@@ -136,6 +151,8 @@ namespace TransparentFormApp
         public void removeMessage()
         {
             canDraw = false;
+            lastLine = currentLine;
+
         }
 
 
