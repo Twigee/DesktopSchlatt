@@ -61,6 +61,10 @@ namespace TransparentFormApp
             Console.WriteLine("This is debug stuff, please ignore!");
             Console.ForegroundColor = ConsoleColor.White;
 
+
+
+            this.DoubleBuffered = true;
+
         }
 
         public void Form1_KeyDown(object sender, KeyEventArgs e)

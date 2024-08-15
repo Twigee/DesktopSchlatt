@@ -49,7 +49,7 @@ namespace TransparentFormApp
 
 
 
-            printList = Directory.GetFiles("PrinterImages");
+            printList = Directory.GetFiles("Assets\\PrinterImages");
             
             foreach (string file in printList) { Console.WriteLine(file); }
         }
@@ -147,7 +147,7 @@ namespace TransparentFormApp
 
                             pd.Print();
                         }
-                        else
+                        else if(!CanPrint)
                         {
                             createMessage();
                         }

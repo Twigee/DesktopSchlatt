@@ -217,11 +217,21 @@ namespace TransparentFormApp
 
 
 
+        /// send keys 
+
+        //public void sendKeysMethod()
+        //{
+        //    SendKeys.Send("w");
+        //}
+
+
         public void schedual()
         {
             Random random = new Random();
 
             taskNumber = random.Next(1, 3);
+
+            
 
 
             wanderingTime = random.Next(10, 30);
