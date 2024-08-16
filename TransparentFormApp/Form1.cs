@@ -50,13 +50,11 @@ namespace TransparentFormApp
         {
 
             InitializeComponent();
-            this.TopMost = true;
-
             this.BackColor = Color.Black;
             this.TransparencyKey = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-
+            
            
 
             gamewatch.Start();
@@ -112,6 +110,7 @@ namespace TransparentFormApp
             deltaTime = currentFrameTime - lastFrameTime;
             lastFrameTime = currentFrameTime;
             deltaSeconds = (float)deltaTime.TotalSeconds;
+            this.TopMost = true;
 
 
             //Console.WriteLine(TwigMath.Distance(Control.MousePosition, schlatty.point));
