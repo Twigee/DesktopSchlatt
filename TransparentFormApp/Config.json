@@ -1,4 +1,6 @@
 {
+    "_Comment": "States what the program is allowed to do",
     "AllowPrinting":false,
-    "AllowPlaySound":true
+    "AllowPlaySound":true,
+    "AllowTakeOverInput":false
 }

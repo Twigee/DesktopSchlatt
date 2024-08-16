@@ -16,6 +16,7 @@ namespace TransparentFormApp
     {
         public bool AllowPrinting { get; set; }
         public bool AllowPlaySound { get; set; }
+        public bool AllowTakeOverInput { get; set; }
     }
 
 
@@ -88,7 +89,7 @@ namespace TransparentFormApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                schlatty.taskNumber = 3;
+                schlatty.taskNumber = 4;
             }
 
             if (e.KeyCode == Keys.P)

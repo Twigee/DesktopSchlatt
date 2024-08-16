@@ -59,13 +59,11 @@ namespace TransparentFormApp
             var configs = JsonSerializer.Deserialize<Configs>(configText);
 
             canPlaySound = configs.AllowPlaySound;
-            Console.WriteLine(canPlaySound);
+            CanPrint = configs.AllowPrinting;
+            Console.WriteLine(configs.AllowPrinting);
+            Console.WriteLine(configs.AllowPlaySound);
         }
-        public void importValues(bool allowPrint, bool allowSnd)
-        {
-            CanPrint = allowPrint;
-            canPlaySound = allowSnd;
-        }
+        
 
 
         public void createChatBox()

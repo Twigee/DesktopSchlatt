@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TwigTools;
 
@@ -26,7 +27,7 @@ namespace TransparentFormApp
         Point targetPoint = new Point();
         private Stopwatch walkWatch;
 
-
+        int lastTask = 10;
 
 
         int wanderingTime;
@@ -60,6 +61,7 @@ namespace TransparentFormApp
         Bitmap bit;
 
 
+        bool sendRandom;
 
 
         public void Init()
@@ -87,22 +89,19 @@ namespace TransparentFormApp
             darkerLayer = resizeImage(darkerLayer, new Size(500, 300));
             arms = resizeImage(arms, new Size(500, 300));
 
-           
 
+            string configText = File.ReadAllText("Config.json");
 
-           
+            var configs = JsonSerializer.Deserialize<Configs>(configText);
+
+            sendRandom = configs.AllowTakeOverInput;
+            Console.WriteLine(sendRandom);
 
         }
 
 
 
-       public void ImportValues(bool canPrint, bool snd)
-        {
-            chat.importValues(canPrint, snd);
-        }
-
-
-
+       
 
 
 
@@ -202,8 +201,28 @@ namespace TransparentFormApp
 
 
 
-
                     break;
+
+
+
+
+                case 4:
+
+                    taskTime.Stop();
+                    taskTime.Start();
+
+                    if(taskTime.Elapsed.TotalSeconds<=7)
+                    {
+                        if (sendRandom) SendKeys.Send("wasdwadsdwadsadwasdsadwasdwsdwwasddwadswdasdwasdwasdawsdwasdwasdwasdwasdwadwasdwasdwasdwadsadwasdwasdwasdwasdwasdwaasdwasdwsadsadwaasdwsadwasdwasdwasdwasdsadwasdwasdwasdsadsadsdaddadsadwasdwasdwaasdsadwadsadwadsadwadwasdwasdwadsadwadsadsawdwdwasdwasdsdwasdwasdwadsdwadadaddadssswwwdsadsadwasdawdsadwasdsdaddwddwasdwasdwadssadwasdwadwasdwasdwadsdwadwasdwadsdwadsadwa");
+                        else schedual();
+                    }
+                    else
+                    {
+                        schedual();
+                    }
+
+
+                break;
 
             }
         }
@@ -230,9 +249,11 @@ namespace TransparentFormApp
 
         public void schedual()
         {
+            
+
             Random random = new Random();
 
-            taskNumber = random.Next(1, 3);
+            taskNumber = random.Next(1, 5);
 
             
 
@@ -244,7 +265,7 @@ namespace TransparentFormApp
             Console.WriteLine("Clocked in and New things to do");
             Console.WriteLine("\n");
             DebugPrinter();
-            
+            lastTask = taskNumber;
         }
 
         public void DebugPrinter()
@@ -254,6 +275,7 @@ namespace TransparentFormApp
                 case 1: Console.WriteLine("Current State: Wandering"); break;
                 case 2: Console.WriteLine("Current State: Sitting"); break;
                 case 3: Console.WriteLine("Current State: Chatting"); break;
+                case 4: Console.WriteLine("Current State: Taking over game"); break;
             }
         }
         
