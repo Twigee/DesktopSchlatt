@@ -6,9 +6,19 @@ using System.Windows.Forms;
 using System.Media;
 using System.Runtime.InteropServices;
 using System.Drawing.Printing;
+using System.Text.Json;
 
 namespace TransparentFormApp
 {
+
+
+    public class Configs
+    {
+        public bool AllowPrinting { get; set; }
+        public bool AllowPlaySound { get; set; }
+    }
+
+
     public partial class Form1 : Form
     {
 
@@ -27,6 +37,10 @@ namespace TransparentFormApp
         float deltaSeconds;
 
         public SoundPlayer snd;
+
+        // Configs
+
+        public bool canPrint;
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -65,6 +79,9 @@ namespace TransparentFormApp
 
             this.DoubleBuffered = true;
 
+            
+
+            Console.WriteLine(snd);
         }
 
         public void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -97,7 +114,6 @@ namespace TransparentFormApp
 
 
             //Console.WriteLine(TwigMath.Distance(Control.MousePosition, schlatty.point));
-
 
             schlatty.Update(deltaSeconds);
 

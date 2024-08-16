@@ -5,6 +5,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 
@@ -13,24 +14,25 @@ namespace TransparentFormApp
 
     public class chatBoxclass()
     {
-        Image image;
-        Point Point;
+        Image? image;
+        Point? Point;
     }
    public partial class chatMangement
     {
-        public Stopwatch letterStopWatch;
-        public string[] lines;
+        public Stopwatch? letterStopWatch;
+        public string[]? lines;
         public int randomLine;
-        public Image chatbox;
-        public string currentLine;
-        string chatLine;
-        Font font;
+        public Image? chatbox;
+        public string? currentLine;
+        string? chatLine;
+        Font? font;
         public bool canDraw = false;
         List<chatBoxclass> chatBoxclassesItem = new();
-        Schlatty schlatty ;
-        string lastLine;
+        Schlatty? schlatty;
+        string? lastLine;
 
-        bool CanPrint = false;
+        bool CanPrint;
+        bool canPlaySound;
 
 
         string[]? printList;
@@ -48,12 +50,22 @@ namespace TransparentFormApp
             schlatty.fuck = true;
 
 
-
             printList = Directory.GetFiles("Assets\\PrinterImages");
             
             foreach (string file in printList) { Console.WriteLine(file); }
-        }
 
+            string configText = File.ReadAllText("Config.json");
+
+            var configs = JsonSerializer.Deserialize<Configs>(configText);
+
+            canPlaySound = configs.AllowPlaySound;
+            Console.WriteLine(canPlaySound);
+        }
+        public void importValues(bool allowPrint, bool allowSnd)
+        {
+            CanPrint = allowPrint;
+            canPlaySound = allowSnd;
+        }
 
 
         public void createChatBox()
@@ -121,15 +133,19 @@ namespace TransparentFormApp
                 switch (currentLine)
                 {
                     case "Hi! I'm schlatt, your\ndesktop personal assistant.":
-                        SoundPlayer simpleSound = new SoundPlayer(@"Assets\\Audio\\Greating.wav");
-                        simpleSound.Play();
+                        if (canPlaySound) { SoundPlayer simpleSound = new SoundPlayer(@"Assets\\Audio\\Greating.wav"); simpleSound.Play(); }
+
                         break;
 
 
 
                     case "damn":
-                        SoundPlayer simpleSound1 = new SoundPlayer(@"Assets\\Audio\\damn.wav");
-                        simpleSound1.Play();
+                        if(canPlaySound)
+                        {
+                            SoundPlayer simpleSound1 = new SoundPlayer(@"Assets\\Audio\\damn.wav");
+                            simpleSound1.Play();
+                        }
+                        
                         break;
 
                     case "":

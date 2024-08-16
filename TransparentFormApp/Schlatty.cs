@@ -96,7 +96,10 @@ namespace TransparentFormApp
 
 
 
-       
+       public void ImportValues(bool canPrint, bool snd)
+        {
+            chat.importValues(canPrint, snd);
+        }
 
 
 
