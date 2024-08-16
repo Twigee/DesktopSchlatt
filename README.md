@@ -11,6 +11,11 @@ This is horribly programmed, i am so sorry if you decide to read the source
 * possibly cut things if run out of time before filming video
 
 
+
+## Possibly updates
+* Add gaming headset to schlatt when he's taking over the keyboard
+* mouth move when talking - Switching between two images HAHA
+ 
 ## Qwerks
 If your display zoom settings are anything other than ```100%```, the display for the text box will be broken
 
