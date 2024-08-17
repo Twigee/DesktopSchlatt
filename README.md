@@ -5,7 +5,7 @@ This is horribly programmed, i am so sorry if you decide to read the source
 
 ## TODO
 * ~Add checks to make sure we are not doing the same task twice~
-* only take over computer input after 5 minutes
+* ~only take over computer input after 5 minutes~
 * checks for time, if its after certain time sing a sleep song
 * sing songs at random times
 * polish
