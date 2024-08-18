@@ -30,7 +30,7 @@ namespace TransparentFormApp
         List<chatBoxclass> chatBoxclassesItem = new();
         Schlatty? schlatty;
         string? lastLine;
-
+        
         bool CanPrint;
         bool canPlaySound;
 

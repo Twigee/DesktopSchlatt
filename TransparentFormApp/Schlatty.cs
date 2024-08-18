@@ -27,7 +27,7 @@ namespace TransparentFormApp
         Point targetPoint = new Point();
         private Stopwatch walkWatch;
 
-        int lastTask = 10;
+        int lastTask;
 
 
         int wanderingTime;
@@ -59,7 +59,10 @@ namespace TransparentFormApp
         Image arms;
 
         Bitmap bit;
+        bool hasSungSong;
 
+
+        Stopwatch timeTillSentInputs = new Stopwatch();
 
         bool sendRandom;
 
@@ -88,7 +91,7 @@ namespace TransparentFormApp
             baseLayer = resizeImage(baseLayer, new Size(500,300));
             darkerLayer = resizeImage(darkerLayer, new Size(500, 300));
             arms = resizeImage(arms, new Size(500, 300));
-
+            timeTillSentInputs.Start();
 
             string configText = File.ReadAllText("Config.json");
 
@@ -119,6 +122,12 @@ namespace TransparentFormApp
         public void Update(float deltaSeconds)
         {
             
+            if(DateTime.Now.Hour > 23)
+            {
+                Console.WriteLine("Singing Song now");
+
+                hasSungSong = true;
+            }
 
 
             switch(taskNumber)
@@ -193,14 +202,6 @@ namespace TransparentFormApp
                         chat.removeMessage();
                         schedual();
                     }
-
-
-
-
-
-
-
-
                     break;
 
 
@@ -213,11 +214,12 @@ namespace TransparentFormApp
 
                     if(taskTime.Elapsed.TotalSeconds<=7)
                     {
-                        if (sendRandom) SendKeys.Send("wasdwadsdwadsadwasdsadwasdwsdwwasddwadswdasdwasdwasdawsdwasdwasdwasdwasdwadwasdwasdwasdwadsadwasdwasdwasdwasdwasdwaasdwasdwsadsadwaasdwsadwasdwasdwasdwasdsadwasdwasdwasdsadsadsdaddadsadwasdwasdwaasdsadwadsadwadsadwadwasdwasdwadsadwadsadsawdwdwasdwasdsdwasdwasdwadsdwadadaddadssswwwdsadsadwasdawdsadwasdsdaddwddwasdwasdwadssadwasdwadwasdwasdwadsdwadwasdwadsdwadsadwa");
+                        if (sendRandom && timeTillSentInputs.Elapsed.TotalMinutes == 5) SendKeys.Send("wasdwadsdwadsadwasdsadwasdwsdwwasddwadswdasdwasdwasdawsdwasdwasdwasdwasdwadwasdwasdwasdwadsadwasdwasdwasdwasdwasdwaasdwasdwsadsadwaasdwsadwasdwasdwasdwasdsadwasdwasdwasdsadsadsdaddadsadwasdwasdwaasdsadwadsadwadsadwadwasdwasdwadsadwadsadsawdwdwasdwasdsdwasdwasdwadsdwadadaddadssswwwdsadsadwasdawdsadwasdsdaddwddwasdwasdwadssadwasdwadwasdwasdwadsdwadwasdwadsdwadsadwa");
                         else schedual();
                     }
                     else
                     {
+                        timeTillSentInputs.Restart();
                         schedual();
                     }
 
@@ -237,35 +239,36 @@ namespace TransparentFormApp
             t = 0; // Reset the lerp parameter when a new position is generated
         }
 
-
-
-        /// send keys 
-
-        //public void sendKeysMethod()
-        //{
-        //    SendKeys.Send("w");
-        //}
-
-
         public void schedual()
         {
-            
+
 
             Random random = new Random();
 
             taskNumber = random.Next(1, 5);
 
+            if (taskNumber != lastTask)
+
+            {
+                wanderingTime = random.Next(10, 30);
+                sittingTime = random.Next(10, 13);
+
+                newSchedual = true;
+                Console.WriteLine("Clocked in and New things to do");
+                Console.WriteLine("\n");
+                DebugPrinter();
+                lastTask = taskNumber;
+
+            }
+            else
+            {
+                schedual();
+            }
+
+
+
+
             
-
-
-            wanderingTime = random.Next(10, 30);
-            sittingTime = random.Next(10, 13);
-
-            newSchedual = true;
-            Console.WriteLine("Clocked in and New things to do");
-            Console.WriteLine("\n");
-            DebugPrinter();
-            lastTask = taskNumber;
         }
 
         public void DebugPrinter()
