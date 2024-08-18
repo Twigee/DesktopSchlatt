@@ -16,6 +16,8 @@ This is horribly programmed, i am so sorry if you decide to read the source
 * mouth move when talking - Switching between two images HAHA
 * checks for time, if its after certain time sing a sleep song
 * sing songs at random times
+* Add back more voicelines
+
  
 ## Qwerks
 If your display zoom settings are anything other than ```100%```, the display for the text box will be broken
