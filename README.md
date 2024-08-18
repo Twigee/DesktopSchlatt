@@ -7,7 +7,7 @@ This is horribly programmed, i am so sorry if you decide to read the source
 * ~Add checks to make sure we are not doing the same task twice~
 * ~only take over computer input after 5 minutes~
 * polish
-* possibly cut things if run out of time before filming video
+* ~possibly cut things if run out of time before filming video~
 
 
 
