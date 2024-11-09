@@ -2,6 +2,8 @@
 
 This is horribly programmed, i am so sorry if you decide to read the source
 
+[Testvid(1).webm](https://github.com/user-attachments/assets/e30c87a9-1c75-42bc-8b3d-1b4a2041c83d)
+
 
 ## TODO
 * ~Add checks to make sure we are not doing the same task twice~
