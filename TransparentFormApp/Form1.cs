@@ -85,15 +85,7 @@ namespace TransparentFormApp
 
         public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                schlatty.taskNumber = 4;
-            }
-
-            if (e.KeyCode == Keys.P)
-            {
-                
-            }
+           
 
             
 
